@@ -5,7 +5,7 @@ class bind (
     $forward               = undef,
     $dnssec                = undef,
     $filter_ipv6           = undef,
-    $version               = undef,
+    $version               = 'latest',
     $statistics_port       = undef,
     $auth_nxdomain         = undef,
     $include_default_zones = true,
@@ -24,7 +24,7 @@ class bind (
     include ::bind::updater
 
     package { 'bind':
-        ensure => latest,
+        ensure => $version,
         name   => $bind_package,
     }
 
